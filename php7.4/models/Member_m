@@ -1,0 +1,22 @@
+<?
+	class Member_m extends CI_Model	//	모델 클래스 선언
+	{
+		public function getlist()
+		{
+			$sql="select * from member order by name";	//	select문 정의
+			return $this->db->query($sql)->result();	//	쿼리실행, 결과 리턴
+		}
+
+		function getrow($no)
+		{
+			$sql="select * from member where no=$no";
+			return $this->db->query($sql)->row();
+		}
+
+		function deleterow($no)
+		{
+			$sql="delete from member where no=$no";
+			return $this->db->query($sql);
+		}
+	}
+?>
